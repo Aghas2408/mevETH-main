@@ -1,0 +1,63 @@
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+
+[profile.default]
+solc_version = '0.8.19'
+src = 'src'
+out = 'out'
+libs = ['lib']
+optimizer = true
+optimizer_runs = 2000
+via_ir = true
+fuzz_runs = 500
+deny_warnings = false
+
+[profile.default.optimizer_details]
+constantOptimizer = true
+yul = true
+
+[profile.default.optimizer_details.yulDetails]
+stackAllocation = true
+
+[profile.mainnet]
+solc_version = '0.8.19'
+src = 'src'
+out = 'out'
+libs = ['lib']
+chain_id = 1
+
+[profile.goerli]
+src = 'src'
+out = 'out'
+libs = ['lib']
+chain_id = 5
+
+[profile.ci]
+solc_version = '0.8.19'
+src = 'src'
+out = 'out'
+libs = ['lib']
+
+[etherscan]
+mainnet = { key = "${ETHERSCAN_API_KEY}" }
+goerli = { key = "${ETHERSCAN_API_KEY}" }
+optimism = { key = "${ETHERSCAN_API_KEY}" }
+bsc = { key = "${BSCSCAN_API_KEY}" }
+polygon = { key = "${POLYGONSCAN_API_KEY}" }
+arbitrum = { key = "${ARBISCAN_API_KEY}" }
+avalanche = { key = "${SNOWSCAN_API_KEY}" }
+
+[rpc_endpoints]
+mainnet = "${RPC_MAINNET}"
+goerli = "${RPC_GOERLI}"
+polygon = "${POLYGON_MAINNET_RPC_URL}"
+arbitrum = "${ARBITRUM_MAINNET_RPC_URL}"
+bsc = "${BSC_MAINNET_RPC_URL}"
+optimism = "${OPTIMISM_RPC_URL}"
+avalanche = "${AVALANCHE_RPC_URL}"
+
+[fmt]
+line_length = 160
+bracket_spacing = true
+multiline_func_header = "all"
+number_underscore = "thousands"
+wrap_comments = true
